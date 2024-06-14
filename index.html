@@ -128,7 +128,8 @@
       aiResponse1 = 'Emm…所以亲亲是想要买一台游戏笔记本呀！好的呢～';
       aiResponse2 = '游戏本相对来说都比较重哟！亲亲是否想要轻便点儿的电脑呢？';
     }
-    else if (!text.includes("不是") && ((text.includes('轻')|| text.includes('是')))){
+    else if (!text.includes("不是") && !text.includes("不好") && !text.includes("不可以") && !text.includes("不") && 
+            ((text.includes('轻')|| text.includes('是')|| text.includes('ok')|| text.includes('好')|| text.includes('可以')|| text.includes('恩')|| text.includes('嗯')))){
       aiResponse1 = '对嘛！我也觉得轻点儿的电脑是比较方便哦。亲亲真是好想法！';
       aiResponse2 = '那您能接受的价格范围是多少呀？';
     }
@@ -151,7 +152,7 @@
     const sendFirstResponse = function() {  
         const aiResponseElement1 = document.createElement('div');  
         aiResponseElement1.classList.add('message', 'other');  
-        aiResponseElement1.textContent = `AI助手: ${aiResponse1}`;  
+        aiResponseElement1.textContent = ` ${aiResponse1}`;  
         chatWindow.appendChild(aiResponseElement1);  
   
         // 滚动到聊天窗口底部  
@@ -167,7 +168,7 @@
     const sendSecondResponse = function() {  
         const aiResponseElement2 = document.createElement('div');  
         aiResponseElement2.classList.add('message', 'other');  
-        aiResponseElement2.textContent = `AI助手: ${aiResponse2}`;  
+        aiResponseElement2.textContent = ` ${aiResponse2}`;  
         chatWindow.appendChild(aiResponseElement2);  
   
         // 再次滚动到聊天窗口底部（如果需要）  
@@ -183,7 +184,7 @@
     const sendThirdResponse = function() {  
         const aiResponseElement3 = document.createElement('div');  
         aiResponseElement3.classList.add('message', 'other');  
-        aiResponseElement3.textContent = `AI助手: ${aiResponse3}`;  
+        aiResponseElement3.textContent = ` ${aiResponse3}`;  
         chatWindow.appendChild(aiResponseElement3);  
   
         // 再再次滚动到聊天窗口底部（如果需要）  
@@ -199,7 +200,7 @@
     const sendFourthResponse = function() {  
         const aiResponseElement4 = document.createElement('div');  
         aiResponseElement4.classList.add('message', 'other');  
-        aiResponseElement4.textContent = `AI助手: ${aiResponse4}`;  
+        aiResponseElement4.textContent = ` ${aiResponse4}`;  
         chatWindow.appendChild(aiResponseElement4);  
   
         // 再再次滚动到聊天窗口底部（如果需要）  
@@ -242,15 +243,15 @@ function sendMessagesWithDelay(sendButtonId) {
     }  
   
     // 第一条消息  
-    appendMessage("AI助手：亲亲～！我是在线AI助手，接下来将由我为您服务哦～", 'other');  
+    appendMessage("亲亲～！我是在线AI助手，接下来将由我为您服务哦～", 'other');  
   
     // 2秒后发送第二条消息  
     setTimeout(function() {  
-        appendMessage("AI助手：为了满足亲亲您的需求，我想先问您几个问题哟～～", 'other');  
+        appendMessage("为了满足亲亲您的需求，我想先问您几个问题哟～～", 'other');  
   
         // 再过2秒后发送第三条消息  
         setTimeout(function() {  
-            appendMessage("AI助手：这是亲亲您给自己买的，还是作为礼物送人的呀?", 'other');  
+            appendMessage("这是亲亲您给自己买的，还是作为礼物送人的呀?", 'other');  
   
             // 所有消息发送完毕后重新启用发送按钮  
             if (sendButton) {  
